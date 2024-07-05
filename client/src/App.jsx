@@ -38,7 +38,7 @@ function App() {
                     <Route
                         path=""
                         element={
-                            <AuthLayout authentication={false}>
+                            <AuthLayout authentication={true}>
                                 <HomePage />
                             </AuthLayout>
                         }

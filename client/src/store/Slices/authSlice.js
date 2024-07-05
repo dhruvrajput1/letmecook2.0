@@ -32,18 +32,18 @@ export const createAccount = createAsyncThunk("register", async(data) => {
     }
 });
 
-export const userLogin = createAsyncThunk("login", async(data) => {
+export const userLogin = createAsyncThunk('login', async (data, { rejectWithValue }) => {
     try {
-
-        const response = await axiosInstance.post("/users/login", data);
-        toast.success("Logged in successfully");
-        return response.data.message;
-        
+      const response = await axiosInstance.post('/users/login', data, {
+        withCredentials: true // Ensure credentials are included
+      });
+      toast.success('Logged in successfully');
+      return response.data.message;
     } catch (error) {
-        toast.error("Login Failed", error.message);
-        throw error;
+      toast.error('Login Failed: ' + error.message);
+      return rejectWithValue(error.response.data);
     }
-})
+  });
 
 export const userLogout = createAsyncThunk("logout", async() => {
     try {
