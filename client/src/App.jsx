@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import { AuthLayout, Login, SignUp } from "./components/index";
 import { Toaster } from "react-hot-toast";
@@ -38,7 +38,7 @@ function App() {
                     <Route
                         path=""
                         element={
-                            <AuthLayout authentication={true}>
+                            <AuthLayout authentication={false}>
                                 <HomePage />
                             </AuthLayout>
                         }
@@ -84,7 +84,7 @@ function App() {
                             }
                         />
                         <Route
-                            path="subscribers"
+                            path="subscribed"
                             element={
                                 <AuthLayout authentication={false}>
                                     <ChannelSubscribers />
@@ -161,7 +161,7 @@ function App() {
                 <Route
                     path="/watch/:videoId"
                     element={
-                        <AuthLayout authentication={false}>
+                        <AuthLayout authentication>
                             <VideoDetail />
                         </AuthLayout>
                     }

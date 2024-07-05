@@ -5,7 +5,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      '/api': 'https://letmecook2-0-11.onrender.com/'
+      '/api': 'https://letmecook2-0-11.onrender.com/',
     }
   },
   build: {
