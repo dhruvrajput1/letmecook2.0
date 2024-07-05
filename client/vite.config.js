@@ -5,8 +5,11 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      '/api': 'https://letmecook2-0-11.onrender.com/',
-    }
+    '/trunk': {
+        target: 'http://localhost:8000',
+        changeOrigin: true,
+    },
+},
   },
   build: {
     outDir: 'dist'
