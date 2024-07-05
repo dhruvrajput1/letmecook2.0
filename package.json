@@ -4,11 +4,11 @@
   "description": "a full stack MERN project to upload videos and cook your thoughts",
   "main": "index.js",
   "scripts": {
-    "install-server": "cd 'Backend Project Youtube' && npm install",
-    "start-server": "cd 'Backend Project Youtube' && npm run dev",
-    "install-client": "cd 'Frontend Youtube Clone' && npm install",
-    "build-client": "cd 'Frontend Youtube Clone' && npm run build",
-    "start-client": "cd 'Frontend Youtube Clone' && npm run dev"
+    "install-server": "cd server && npm install",
+    "start-server": "cd server && npm run dev",
+    "install-client": "cd client && npm install",
+    "build-client": "cd client && npm run build",
+    "start-client": "cd client && npm run dev"
   },
   "author": "dhruv",
   "license": "ISC"
