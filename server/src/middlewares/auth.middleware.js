@@ -4,7 +4,7 @@ import jwt from "jsonwebtoken";
 import { User } from "../models/user.model.js";
 
 const verifyJWT = asyncHandler(async (req, res, next) => {
-  try {
+  
     const token = req.cookies?.accessToken || req.header("Authorization")?.replace("Bearer ", ""); // or part is for the mobile browser
 
     console.log("Token received:", token);
@@ -25,10 +25,7 @@ const verifyJWT = asyncHandler(async (req, res, next) => {
 
     req.user = user; // this req.user will be used in logging out the user
     next();
-  } catch (error) {
-    console.error("Error in verifying token:", error);
-    throw new ApiError(401, `Error in verifying token: ${error.message}`);
-  }
-});
+  } 
+);
 
 export { verifyJWT };
