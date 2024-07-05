@@ -5,13 +5,11 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-    '/trunk': {
+      '/trunk': {
         target: 'http://localhost:8000',
         changeOrigin: true,
+      },
     },
-},
-  },
-  build: {
-    outDir: 'dist'
   }
+},
 })
