@@ -13,9 +13,13 @@ function Login() {
 
     const loading = useSelector(state => state.auth?.loading);
 
-    const submit = (data) => {
+    console.log("loading", loading);
+
+    const submit = async (data) => {
         // check if user entered email or username
         const isEmail = data.username.includes("@");
+
+        console.log("data", data)
 
         const loginData = { // if not working check here
             email: isEmail? data.username : "",
@@ -23,10 +27,10 @@ function Login() {
             password: data.password,
         }
 
-        const response =  dispatch(userLogin(loginData));
+        const response = await dispatch(userLogin(loginData));
         console.log("response", response)
-        const user =  dispatch(getCurrentUser);
-        if (user && response?.arg) {
+        const user = await dispatch(getCurrentUser());
+        if (user && response.payload) {
             navigate("/");
         }
 

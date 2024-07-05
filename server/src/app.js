@@ -6,7 +6,7 @@ const app = express();
                       
 app.use(cors({  // use is used in handling middlewares and configuratons
     origin: process.env.CORS_ORIGIN,
-    credentials: true
+    credentials: true,
 })); 
 
 app.use(express.json({limit: "90mb"})); // when data comes in form of JSON
