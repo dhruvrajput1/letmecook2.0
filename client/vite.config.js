@@ -7,5 +7,8 @@ export default defineConfig({
     proxy: {
       '/api': 'https://letmecook2-0.onrender.com'
     }
+  },
+  build: {
+    outDir: 'dist'
   }
 })
