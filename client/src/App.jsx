@@ -84,7 +84,7 @@ function App() {
                             }
                         />
                         <Route
-                            path="subscribed"
+                            path="subscribers"
                             element={
                                 <AuthLayout authentication={false}>
                                     <ChannelSubscribers />
