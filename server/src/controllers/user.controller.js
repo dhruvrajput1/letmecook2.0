@@ -143,7 +143,8 @@ const logoutUser = asyncHandler(async(req, res) => {
 
     const options = {
         httpOnly: true, // now cookie can only be accessed from server side
-        secure: true
+        secure: true,
+        sameSite: "None"
     }
 
     return res
