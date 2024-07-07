@@ -17,12 +17,12 @@ function Signup() {
 
     const submit = async (data) => {
         const response = await dispatch(createAccount(data));
-        if (response?.payload?.success) {
+        if (response) {
             const username = data?.username;
             const password = data?.password;
             // now login the user
             const login = await dispatch(userLogin({ username, password }));
-            if (login?.type === "login/fulfilled") {
+            if (login) {
                 navigate("/");
             }
             else {
