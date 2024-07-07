@@ -21,12 +21,9 @@ export const createAccount = createAsyncThunk("register", async (data) => {
 
     try {
         const response = await axiosInstance.post("/users/register", formData);
-        
-        console.log(`response::::::::`, response);
         toast.success("Registered successfully!!!");
         return response.data.message;
     } catch (error) {
-        console.log(`error in registering`, error);
         toast.error(error?.message);
         throw error;
     }
@@ -78,7 +75,6 @@ export const changePassword = createAsyncThunk(
             toast.success(response.data?.data);
             return response.data.message;
         } catch (error) {
-            console.log(error);
             toast.error(error?.message);
             throw error;
         }
@@ -91,8 +87,7 @@ export const getCurrentUser = createAsyncThunk("getCurrentUser", async () => {
         return response.data.message;
     }
     catch(error) {
-        toast.error(error?.message);
-        console.log(error)
+        console.log(error.message);
         throw error;
     } 
     
@@ -164,7 +159,6 @@ const authSlice = createSlice({
             state.loading = false;
             state.status = true;
             state.userData = action.payload;
-            console.log("userData,,,,,,", state.userData);
         });
         builder.addCase(userLogout.pending, (state) => {
             state.loading = true;
