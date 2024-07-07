@@ -8,25 +8,25 @@ const initialState = {
     userData: null,
 };
 
-export const createAccount = createAsyncThunk("register", async(data) => {
+export const createAccount = createAsyncThunk("register", async (data) => {
     const formData = new FormData();
-
+    formData.append("avatar", data.avatar[0]);
     formData.append("username", data.username);
     formData.append("email", data.email);
     formData.append("password", data.password);
     formData.append("fullName", data.fullName);
-    formData.append("avatar", data.avatar[0]);
-
-    if(data.coverImage) formData.append("coverImage", data.coverImage[0]);
+    if (data.coverImage) {
+        formData.append("coverImage", data.coverImage[0]);
+    }
 
     try {
-
         const response = await axiosInstance.post("/users/register", formData);
-        console.log(response.data);
-        toast.success("Account created successfully");
-        return response.data.message;
         
+        console.log(`response::::::::`, response);
+        toast.success("Registered successfully!!!");
+        return response.data.message;
     } catch (error) {
+        console.log(`error in registering`, error);
         toast.error(error?.message);
         throw error;
     }

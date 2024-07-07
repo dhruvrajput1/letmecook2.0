@@ -10,7 +10,7 @@ import { upload } from '../middlewares/multer.middleware.js';
 
 const router = Router();
 
-router.use(verifyJWT); // Apply verifyJWT middleware to all routes in this file
+// router.use(verifyJWT); // Apply verifyJWT middleware to all routes in this file
 
 router
     .route("/")
@@ -31,6 +31,7 @@ router
     );
 
 router
+    .use(verifyJWT) // Apply verifyJWT middleware to all routes in this file
     .route("/:videoId")
     .get(getVideoById)
     .delete(deleteVideo)
