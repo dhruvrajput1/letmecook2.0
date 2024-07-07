@@ -23,9 +23,6 @@ function Signup() {
             // now login the user
             const login = await dispatch(userLogin({ username, password }));
             if (login) {
-                navigate("/");
-            }
-            else {
                 navigate("/login");
             }
         }
