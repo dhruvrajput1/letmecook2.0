@@ -98,7 +98,13 @@ const publishAVideo = asyncHandler(async (req, res) => {
 
     try {
 
-        const userId = await req.user._id;
+        const userId = await req.user?._id;
+
+        if(!userId) {
+            throw new ApiError(400, "User not found");
+        }
+
+        console.log("userId: ", userId);
 
         const videoLocalPath = req.files?.videoFile[0].path;
         const thumbnailLocalPath = req.files?.thumbnail[0].path;

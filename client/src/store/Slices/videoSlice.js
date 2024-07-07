@@ -50,6 +50,7 @@ export const publishAvideo = createAsyncThunk("publishAvideo", async (data) => {
 
     try {
         const response = await axiosInstance.post("/videos", formData);
+        console.log(`response in publish video: ${response}`);
         toast.success(response?.data?.data);
         return response.data.data;
     } catch (error) {
