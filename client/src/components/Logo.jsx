@@ -5,11 +5,11 @@ function Logo({size="30"}) {
     return (
         <>
             <Link to={"/"} className="flex gap-2 items-center">
-                <PiAlien
+                {/* <PiAlien
                     size={size}
                     color="rgb(236 72 153)"
-                    />
-                    <span className="text-3xl font-bold text-pink-500">letmecook 2.0</span>
+                    /> */}
+                    <span className="text-3xl font-bold text-pink-500">Flitzip Videos</span>
             </Link>
             
         </>

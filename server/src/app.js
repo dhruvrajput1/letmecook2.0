@@ -5,7 +5,6 @@ import morgan from "morgan";
 
 const app = express();
 
-
                       
 app.use(cors({  // use is used in handling middlewares and configuratons
     origin: process.env.CORS_ORIGIN,
